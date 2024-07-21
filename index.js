@@ -1,6 +1,19 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  let seenNumbers = new Set();
+
+  for (let num of array) {
+    let difference = target - num;
+    if (seenNumbers.has(difference)) {
+      return true;
+    } else {
+      seenNumbers.add(num);
+    }
+  }
+
+  return false;
 }
+
 
 /* 
   Write the Big O time complexity of your function here
@@ -14,7 +27,7 @@ function hasTargetSum(array, target) {
   Add written explanation of your solution here
 */
 
-// You can run `node index.js` to view these console logs
+// You can run node index.js to view these console logs
 if (require.main === module) {
   // add your own custom tests in here
   console.log("Expecting: true");
